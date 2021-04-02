@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Auxillary from '../../hoc/Auxiliary/Auxillary'
 import Editor from '../Editor/Editor'
 import classes from './Practice.module.css'
+import Spinner from './Spinner'
 //import compiler from '../../services/compiler'
 import axios from 'axios'
 const template = `#include<bits/stdc++.h>
@@ -17,7 +18,8 @@ class Practice extends Component {
     super(props)
 
     this.state = {
-      output: ''
+      output: '',
+      spinner:false
     }
 
     this.userCode = template
@@ -31,25 +33,35 @@ class Practice extends Component {
       stdin: this.userInput,
       language: 'cpp17',
       versionIndex: '0',
-      clientId: process.env.REACT_APP_JDOODLE_CLIENT_ID,
-      clientSecret: process.env.REACT_APP_JDOODLE_CLIENT_SECRET
+      clientId: 'cd014467b8e205b74b87fbee27d3dfdd',
+      clientSecret: '1ffd134a9bd3a34832354356005e9f3fbb93f8ae80d298107f99e68acdcaec50'
     }
 
     const config = {
       headers: {
-        'content-type': 'application/json',
+        'Content-Type': 'multipart/form-data' 
         
       }
     }
-
-    document.getElementById('practicebtn').disabled = true
+   const formData =new FormData();
+   console.log(program)
+  Object.keys(program).forEach(key=>{
+    console.log(key);
+    formData.append(key,program[key])
+  })
+   console.log(formData.keys())
+   for (let value of formData.values()) {
+    console.log(value);
+ }
+    //document.getElementById('practicebtn').disabled = true
+    this.setState({spinner:true})
     axios
-      .get('https://code-play-apis.herokuapp.com/api/execute',{params:{program:program}},config)
+      .post('https://code-play-apis.herokuapp.com/api/execute',formData,config)
       .then((data) => {
         console.log('DATA:::', data.data.output)
-        document.getElementById('practicebtn').disabled = false
+        //document.getElementById('practicebtn').disabled = false
 
-        this.setState({ output: data.data.output })
+        this.setState({ output: data.data.output,spinner: false})
       })
       .catch((e) => {
         console.log('e: ', e)
@@ -85,13 +97,13 @@ class Practice extends Component {
           <div className={classes.practiceEditor}>
             <div className={classes.top}>
               <p>Code</p>
-              <button
+              {this.state.spinner?<Spinner/>:<button
                 id="practicebtn"
                 className={classes.runButton}
                 onClick={this.compiler}
               >
                 Run
-              </button>
+              </button>}
             </div>
             <Editor
               mode="c_cpp"
