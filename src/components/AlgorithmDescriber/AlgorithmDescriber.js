@@ -12,14 +12,8 @@ const algorithmDescriber = (props) => (
         <p>{props.content}</p>
       </div>
       <div className={classes.buttons}>
-
-
-  
-
-
-
         <Link to={props.visualizer}><button className={classes.visualizeButton}>Vizualize</button></Link> 
-        <button className={classes.practiceButton}>Practice</button>
+        <Link to={props.topic}><button className={classes.practiceButton}>Practice</button></Link>
       </div>
     </div>
   </div>

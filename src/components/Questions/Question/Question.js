@@ -5,6 +5,7 @@ import styles from './Question.module.css'
 
 const question = (props) => {
   const redirectQues = (contestID, index) => {
+    console.log(contestID)
     window.open(
       `https://codeforces.com/problemset/problem/${contestID}/${index}`
     )
@@ -13,7 +14,7 @@ const question = (props) => {
   return (
     <div
       className={styles.Question}
-      onClick={() => redirectQues(props.contestID, props.index)}
+      onClick={() => redirectQues(props.contestId, props.index)}
     >
       <h5 className={styles.quesTitle}>{props.name}</h5>
       <p className={styles.quesRating}>Rating: {props.rating}</p>

@@ -1,5 +1,6 @@
 .Questions {
   height: 100%;
+  margin-top: 0 px;
   background-color: rgb(41, 41, 41);
   overflow-x: hidden;
 }
