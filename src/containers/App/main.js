@@ -10,10 +10,13 @@ import DpAbout from '../../components/Algorithms/dynamicProgramming/DPAbout'
 import BinarySearchLayout from '../../components/Algorithms/searchingAlgorithms/BinarySearch/BinarySearchLayout'
 import LinearSearchLayout from '../../components/Algorithms/searchingAlgorithms/LinearSearch/LinearSearchLayout'
 import WordSearchLayout from '../../components/Algorithms/WordSearchVisualiser/BacktrackingLayout'
+import Nqueen from '../../components/Algorithms/nQueensProblem/nQueensProblem'
 const main = (props) => {
   return (
     <>
-       <Route path="/" exact component={LoginSignup} /> 
+       {/* <Route path="/" exact component={LoginSignup} />  */}
+       <Route path="/" exact component={Nqueen} />
+
       {/* <Route path="/" exact component={Questions} /> */}
       {/* ---------------CHANGE THIS ROUTE FOR POSTS---------------- */}
        <Route path="/posts" exact component={Posts} /> 
