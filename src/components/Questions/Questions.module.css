@@ -1,0 +1,22 @@
+.Questions {
+  height: 100%;
+  background-color: rgb(41, 41, 41);
+  overflow-x: hidden;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+}
+
+.questions {
+  /* margin: 0 8px 0 0; */
+  padding: 20px 10px;
+  flex-grow: 1;
+  /* height: 100%; */
+  color: #eee;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* grid-template-rows: repeat(auto-fit, minmax(125px, 1fr)); */
+  gap: 1.2em;
+}

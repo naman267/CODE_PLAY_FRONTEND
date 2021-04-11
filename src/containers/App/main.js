@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import Posts from '../../components/Posts/Posts'
+// import Posts from '../../components/Posts/Posts'
+import Questions from '../../components/Questions/Questions'
 import about from '../../components/About/About'
 import LoginSignup from '../../components/LoginSignup/LoginSignup'
 import SearchingAbout from '../../components/Algorithms/searchingAlgorithms/searchingAlgorithmsAbout'
@@ -12,9 +13,10 @@ import WordSearchLayout from '../../components/Algorithms/WordSearchVisualiser/B
 const main = (props) => {
   return (
     <>
-      <Route path="/" exact component={LoginSignup} />
+      {/* <Route path="/" exact component={LoginSignup} /> */}
+      <Route path="/" exact component={Questions} />
       {/* ---------------CHANGE THIS ROUTE FOR POSTS---------------- */}
-       <Route path="/posts" exact component={Posts} /> 
+      {/* <Route path="/posts" exact component={Posts} /> */}
 
       <Route path="/about" exact component={about} />
       <Route path="/searching" exact component={SearchingAbout} />
