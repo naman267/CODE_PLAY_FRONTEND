@@ -9,6 +9,7 @@ import DynamicProgrammingAboutPage from '../../components/Algorithms/dynamicProg
 import SearchingAlgorithmsAboutPage from '../../components/Algorithms/searchingAlgorithms/searchingAlgorithmsAbout'
 import BinarySearch from '../../components/Algorithms/searchingAlgorithms/BinarySearch/BinarySearch'
 import LinearSearch from '../../components/Algorithms/searchingAlgorithms/LinearSearch/LinearSearch'
+import Nqueen from '../../components/Algorithms/nQueensProblem/nQueensProblem'
 import classes from './Layout.module.css'
 
 class Layout extends Component {
@@ -36,6 +37,9 @@ class Layout extends Component {
       comp = <BinarySearch clicked={this.showPracticeToggleHandler} />
     } else if (this.props.visualizer === 'linearSearch') {
       comp = <LinearSearch clicked={this.showPracticeToggleHandler} />
+    }
+    else if (this.props.visualizer === 'nqueen') {
+      comp = <Nqueen clicked={this.showPracticeToggleHandler} />
     }
 
     return (

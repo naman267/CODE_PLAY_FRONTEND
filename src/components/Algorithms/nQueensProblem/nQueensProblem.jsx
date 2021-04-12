@@ -1,5 +1,6 @@
 import React from "react";
 import crown from "./../nQueensProblem/crown.png";
+import code from './code'
 
 import { getNQueensAnimations } from "./backTrackingAlgorithms";
 
@@ -210,7 +211,7 @@ export default class NQueensProblem extends React.Component {
         return (
         <div className="nqueencomp">
         
-          <CodeSideBar clicked={this.props.clicked}  />
+          <CodeSideBar code={code} clicked={this.props.clicked}  />
         
 
                 <div >
@@ -272,9 +273,7 @@ export default class NQueensProblem extends React.Component {
                                         board sizes would make the page
                                         unresponsive because of huge number of
                                         computations. &nbsp;
-                                        <a href="https://github.com/dipeshpatil/algorithms-visualiser/tree/master/src/backTrackingAlgorithms">
-                                            GitHub Repo for this project
-                                        </a>
+                                      
                                     </small>
                                 </center>
                             ) : null}
