@@ -19,6 +19,8 @@ eligendi odit neque iusto! Veritatis recusandae doloribus assumenda quia
 esse quo natus reiciendis! Harum et soluta perspiciatis quasi?`
 
   const heading = 'Searching Algorithms'
+  const v1="BinarySearch"
+  const v2="LinearSearch"
 
   return (
     <AlgorithmDescriber
@@ -26,6 +28,8 @@ esse quo natus reiciendis! Harum et soluta perspiciatis quasi?`
       topic="/searching/problems"
       heading={heading}
       content={content}
+      v1={v1}
+      v2={v2}
     />
   )
 }

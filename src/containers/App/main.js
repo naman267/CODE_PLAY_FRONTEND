@@ -34,21 +34,21 @@ const main = (props) => {
       <Route path="/backtracking" exact component={BacktrackingAbout} />
       <Route path="/dp" exact component={DpAbout} />
       <Route
-        path="/searching/binarySearch"
+        path="/searching/BinarySearch"
         exact
         component={BinarySearchLayout}
       />
       <Route
-        path="/searching/linearSearch"
+        path="/searching/LinearSearch"
         exact
         component={LinearSearchLayout}
       />
       <Route
-        path="/backtracking/wordSearch"
+        path="/backtracking/WordSearch"
         exact
         component={WordSearchLayout}
       />
-      <Route path="/backtracking/nqueen" exact component={Nqueen} />
+      <Route path="/backtracking/NQueen" exact component={Nqueen} />
 
       {/* <Route path="/signup" exact component={signup}/>
         <Route path="/signup" exact component={signup}/>
