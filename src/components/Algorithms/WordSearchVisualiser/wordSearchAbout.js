@@ -20,7 +20,7 @@ esse quo natus reiciendis! Harum et soluta perspiciatis quasi?`
 
   const heading = 'Backtarcking Algorithms'
 
-  return <AlgorithmDescriber visualizer ="/backtracking/wordSearch" topic="/dfs/problems" heading={heading} content={content} v1="WordSearch" v2="NQueen" />
+  return <AlgorithmDescriber show="true" visualizer ="/backtracking/wordSearch" topic="/dfs/problems" heading={heading} content={content} v1="WordSearch" v2="NQueen" />
 }
 
 export default wordSearchAbout

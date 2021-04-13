@@ -20,7 +20,7 @@ esse quo natus reiciendis! Harum et soluta perspiciatis quasi?`
 
   const heading = 'Dynamic Programming Algorithms'
 
-  return <AlgorithmDescriber heading={heading} content={content} />
+  return <AlgorithmDescriber topic="/dp/problems" show="false" heading={heading} content={content} />
 }
 
 export default dynamicProgrammingAbout

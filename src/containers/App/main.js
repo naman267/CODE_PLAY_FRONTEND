@@ -29,6 +29,11 @@ const main = (props) => {
         path="/dfs/problems"
         render={() => <Questions topic="dfs" />}
       />
+      <Route
+        exact
+        path="/dp/problems"
+        render={() => <Questions topic="dp" />}
+      />
       <Route path="/about" exact component={about} />
       <Route path="/searching" exact component={SearchingAbout} />
       <Route path="/backtracking" exact component={BacktrackingAbout} />

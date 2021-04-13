@@ -24,6 +24,7 @@ esse quo natus reiciendis! Harum et soluta perspiciatis quasi?`
 
   return (
     <AlgorithmDescriber
+    show="true"
       visualizer="/searching/binarySearch"
       topic="/searching/problems"
       heading={heading}

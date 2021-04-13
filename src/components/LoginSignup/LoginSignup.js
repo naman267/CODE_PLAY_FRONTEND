@@ -10,8 +10,9 @@ import {
 } from 'react-icons/fa'
 import axios from 'axios'
 import styles from './LoginSignup.module.css'
-
+import PostSpinner from '../Spinner/Spinner'
 class Form extends Component {
+  state = { spinner: false }
   componentDidMount() {
     const signUpButton = document.getElementById('signUp')
     const signInButton = document.getElementById('signIn')
@@ -28,7 +29,7 @@ class Form extends Component {
   loginHandler = (e) => {
     e.preventDefault()
     const formData = new FormData(e.target)
-
+   this.setState({ spinner:true})
     axios
       .post('https://code-play-apis.herokuapp.com/login', formData, {
         headers: {
@@ -37,6 +38,7 @@ class Form extends Component {
       })
       .then((response) => {
         console.log('login response:::', response.data)
+        this.setState({submit:false})
         if(response.data.message!=='Login succesful' )
         {
           return alert("Unable to login. Please try again")
@@ -54,7 +56,7 @@ class Form extends Component {
     e.preventDefault()
     const formData = new FormData(e.target)
     console.log('form data:::', formData)
-
+     this.setState({spinner:true})
     axios
       .post('https://code-play-apis.herokuapp.com/signup', formData, {
         headers: {
@@ -63,6 +65,7 @@ class Form extends Component {
       })
       .then((response) => {
         console.log('signup response:::', response.data)
+        this.setState({spinner:false})
         if(response.data.message!=='userCreated')
         {
           return alert('Unable to sign up. Please try again')
@@ -78,7 +81,7 @@ class Form extends Component {
   render() {
     return (
       <div className={styles.formPage}>
-        <div className={styles.container} id="container">
+        {this.state.spinner?<PostSpinner/>:<div className={styles.container} id="container">
           <IconContext.Provider value={{ size: '1.5em' }}>
             <div
               className={[
@@ -200,7 +203,8 @@ class Form extends Component {
               </div>
             </div>
           </IconContext.Provider>
-        </div>
+        </div>}
+        
       </div>
     )
   }
