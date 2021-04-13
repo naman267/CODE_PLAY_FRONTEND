@@ -15,14 +15,16 @@
 }
 
 .top {
+  margin-bottom: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.Sidebar p {
+.top p {
+  margin: 0;
   color: white;
-  margin-bottom: 5px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -41,6 +43,21 @@
   transform: scaleX(1.1);
 }
 
+.runButton:disabled {
+  background-color: #aaa;
+  /* border: 1px solid #7e7365; */
+  color: #222;
+  cursor: default;
+}
+
+.runButton:disabled:hover {
+  background-color: #999;
+  color: #111;
+  cursor: not-allowed;
+  font-weight: normal;
+  transform: none;
+}
+
 .practiceEditor {
   padding: 5px;
   width: 100%;
@@ -52,6 +69,13 @@
   height: 40%;
   display: flex;
   justify-content: space-between;
+}
+
+.Practice p {
+  margin-bottom: 5px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .inputEditor,
@@ -68,4 +92,10 @@
 .Close {
   transform: translateX(100vw);
   opacity: 1;
+}
+
+.running {
+  background-color: grey;
+  color: #222;
+  cursor: progress;
 }

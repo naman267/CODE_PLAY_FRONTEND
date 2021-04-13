@@ -28,7 +28,7 @@ class Post extends Component {
         }
       })
       .then((response) => {
-        console.log('user:::', response.data)
+        // console.log('user:::', response.data)
         this.user = response.data.user
         const { _id, upvotedBy, downvotedBy, upvote, downvote } = this.props
         let isUpvoted, isDownvoted
@@ -37,8 +37,8 @@ class Post extends Component {
         const idx1 = downvotedBy.findIndex((user) => user === this.user)
         isUpvoted = idx !== -1
         isDownvoted = idx1 !== -1
-        console.log('testing:::', idx, idx1, upvotedBy, downvotedBy, this.user)
-        console.log('post props mounted:::', this.props)
+        // console.log('testing:::', idx, idx1, upvotedBy, downvotedBy, this.user)
+        // console.log('post props mounted:::', this.props)
         this.setState(
           {
             _id,
@@ -50,7 +50,7 @@ class Post extends Component {
             downvote
           },
           () => {
-            console.log('mounted state:::', this.state, this.user)
+            // console.log('mounted state:::', this.state, this.user)
           }
         )
       })
@@ -79,7 +79,7 @@ class Post extends Component {
         isUpvoted = idx !== -1
         isDownvoted = idx1 !== -1
 
-        console.log('post props voted:::', this.props)
+        // console.log('post props voted:::', this.props)
         this.setState(
           {
             _id,
@@ -91,7 +91,7 @@ class Post extends Component {
             downvote
           },
           () => {
-            console.log('voting state:::', this.state)
+            // console.log('voting state:::', this.state)
           }
         )
       })

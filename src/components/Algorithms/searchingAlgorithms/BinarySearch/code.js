@@ -19,6 +19,6 @@ int binarySearch(int arr[], int n, int ele){
 
     return -1;
 }
-`;
+`
 
-export default binarySearchCode;
+export default binarySearchCode

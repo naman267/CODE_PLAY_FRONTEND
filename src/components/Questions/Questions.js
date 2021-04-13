@@ -19,7 +19,6 @@ class Questions extends Component {
         let quess = response.data.map((ques, idx) => (
           <Question key={idx} {...ques} />
         ))
-
         this.setState({ questions: quess })
       })
   }

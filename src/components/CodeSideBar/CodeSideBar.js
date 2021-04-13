@@ -1,7 +1,7 @@
 import React from 'react'
+import Editor from '../Editor/Editor'
 import styles from './CodeSideBar.module.css'
 
-import Editor from '../Editor/Editor'
 const codeSideBar = (props) => {
   //console.log(code)
   console.log('props-', props)
@@ -9,9 +9,17 @@ const codeSideBar = (props) => {
   return (
     <div className={styles.Sidebar}>
       <h2>CODE</h2>
-      <Editor mode="c_cpp" code={props.code} readOnly />
+      <div className={styles.Editor}>
+        <Editor
+          mode="c_cpp"
+          height="480px"
+          width="450px"
+          code={props.code}
+          readOnly
+        />
+      </div>
       <button className={styles.Button} onClick={props.clicked}>
-        Practice Code
+        Customize!
       </button>
     </div>
   )

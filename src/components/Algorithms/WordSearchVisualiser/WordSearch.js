@@ -3,14 +3,16 @@ import CodeSideBar from '../../CodeSideBar/CodeSideBar'
 import CHARS from './wordSearch-utils/chars'
 import Cell from './Cell/Cell'
 import { randomIntFromInterval } from '../../utils/randomIntFromInterval'
-
-import code from './code'
-
 import { wordDFS } from './algorithms/wordDFS'
+import Practice from '../../Practice/Practice'
+import code from './code'
+import problemStatement from './wordSearch-utils/problemStatement'
+
 // import BackBar from "../../utils/Backbar";
 // import ProblemStatement from "./wordSearch-utils/problemStatement";
 import './WordSearch.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+
 const BOARD_SIZE = 10
 
 export default class WordSearch extends React.Component {
@@ -116,14 +118,39 @@ export default class WordSearch extends React.Component {
 
   render() {
     const { grid, disabled } = this.state
-    return (
-      <div>
-        <div>
-          <CodeSideBar clicked={this.props.clicked} code={code} />
-        </div>
 
+    const WSTemplate = `${problemStatement}
+
+${code}
+`
+
+    const WSCode = `#include<bits/stdc++.h>
+using namespace std;
+
+${code}
+
+int main(){
+  
+  int arr[] = {5, 7, 9, 14, 23, 33, 40, 64, 72};
+  int n = sizeof(arr)/sizeof(int);
+
+  int idx = binarySearch(arr, n, 23);
+
+  if(idx != -1){
+    cout<<"Element found at index "<< idx;
+  }
+  else{
+    cout<<"Element not found!";
+  }
+
+  return 0;
+}`
+
+    return (
+      <div className="ws-comp">
+        <CodeSideBar clicked={this.props.clicked} code={WSTemplate} />
         <div className="WordSearch">
-          <div className="col-sm-5 mt-2">
+          <div className="ws-control">
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text" id="basic-addon2">
@@ -169,29 +196,30 @@ export default class WordSearch extends React.Component {
             </div>
             {/* <ProblemStatement /> */}
           </div>
-          <div className="row">
-            <div className="col-sm-7 mt-1">
-              <div className="ws-box rounded shadowB">
-                <div className="ws-grid" id="ws-grid">
-                  {grid.map((ele) => {
-                    return ele.map((cell, idx) => {
-                      const { row, col, val, found, visited } = cell
-                      return (
-                        <Cell
-                          key={`${row}-${col}`}
-                          row={row}
-                          col={col}
-                          val={val}
-                          visited={visited}
-                          found={found}
-                        />
-                      )
-                    })
-                  })}
-                </div>
+          <div className="ws-row">
+            <div className="ws-box rounded shadowB">
+              <div className="ws-grid" id="ws-grid">
+                {grid.map((ele) => {
+                  return ele.map((cell, idx) => {
+                    const { row, col, val, found, visited } = cell
+                    return (
+                      <Cell
+                        key={`${row}-${col}`}
+                        row={row}
+                        col={col}
+                        val={val}
+                        visited={visited}
+                        found={found}
+                      />
+                    )
+                  })
+                })}
               </div>
             </div>
           </div>
+        </div>
+        <div>
+          <Practice show={this.props.show} code={WSCode} />
         </div>
       </div>
     )

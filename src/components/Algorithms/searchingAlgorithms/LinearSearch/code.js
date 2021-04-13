@@ -1,22 +1,14 @@
 const code = `
-void binearSearch(int ar[], int n, int ele) {
-    int i;
-    int index = -1;
+int linearSearch(int a[], int n, int ele){
 
-    for(i=0 ; i<n ; i++) {
-        if(ar[i] == ele) {
-            index=i;
-            break;
+    for(int i=0 ; i<n ; i++){
+        if(a[i] == ele){
+            return i;
         }
     }
 
-    if(idx == -1) {
-        cout<<"Element Not Present";
-    }
-    else {
-        cout<<"Element Present"
-    }
+    return -1;
 }
-`;
+`
 
-export default code;
+export default code

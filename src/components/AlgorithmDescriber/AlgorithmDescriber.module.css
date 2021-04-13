@@ -1,5 +1,6 @@
 .AlgorithmDescriber {
   display: flex;
+  color: #eee;
 }
 
 .content {
@@ -15,6 +16,7 @@
 }
 
 .content p {
+  margin: 20px 0;
   text-align: justify;
 }
 

@@ -31,15 +31,34 @@ class Layout extends Component {
     let comp = null
     console.log(this.props)
     if (this.props.visualizer === 'backtracking') {
-      comp = <WordSearch clicked={this.showPracticeToggleHandler} />
-    } else if (this.props.visualizer == 'binarySearch') {
+      comp = (
+        <WordSearch
+          clicked={this.showPracticeToggleHandler}
+          show={this.state.showPractice}
+        />
+      )
+    } else if (this.props.visualizer === 'binarySearch') {
       console.log('binarylayout')
-      comp = <BinarySearch clicked={this.showPracticeToggleHandler} />
+      comp = (
+        <BinarySearch
+          clicked={this.showPracticeToggleHandler}
+          show={this.state.showPractice}
+        />
+      )
     } else if (this.props.visualizer === 'linearSearch') {
-      comp = <LinearSearch clicked={this.showPracticeToggleHandler} />
-    }
-    else if (this.props.visualizer === 'nqueen') {
-      comp = <Nqueen clicked={this.showPracticeToggleHandler} />
+      comp = (
+        <LinearSearch
+          clicked={this.showPracticeToggleHandler}
+          show={this.state.showPractice}
+        />
+      )
+    } else if (this.props.visualizer === 'nqueen') {
+      comp = (
+        <Nqueen
+          clicked={this.showPracticeToggleHandler}
+          show={this.state.showPractice}
+        />
+      )
     }
 
     return (
@@ -51,7 +70,7 @@ class Layout extends Component {
         {/* <BackTrackingAboutPage /> */}
         {/* <DynamicProgrammingAboutPage /> */}
         {comp}
-        <Practice show={this.state.showPractice} />
+        {/* <Practice show={this.state.showPractice} /> */}
       </Auxillary>
     )
   }

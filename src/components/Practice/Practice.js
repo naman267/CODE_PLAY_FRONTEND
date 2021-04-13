@@ -1,17 +1,10 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import Auxillary from '../../hoc/Auxiliary/Auxillary'
 import Editor from '../Editor/Editor'
 import classes from './Practice.module.css'
-import Spinner from './Spinner'
+// import Spinner from './Spinner'
 //import compiler from '../../services/compiler'
-import axios from 'axios'
-const template = `#include<bits/stdc++.h>
-using namespace std;
-
-int main(){
-    cout<<"Hello World!";
-    return 0;
-}`
 
 class Practice extends Component {
   constructor(props) {
@@ -19,12 +12,21 @@ class Practice extends Component {
 
     this.state = {
       output: '',
-      spinner:false
+      running: false
     }
 
-    this.userCode = template
+    this.userCode = this.props.code
     this.userInput = ''
   }
+
+  // componentDidMount() {
+  //   let runButton = document.getElementById('practiceBtn')
+  //   if (this.state.running) {
+  //     runButton.classList.add(classes.running)
+  //   } else {
+  //     runButton.classList.remove(classes.running)
+  //   }
+  // }
 
   compiler = () => {
     console.log('clicked compiler')
@@ -34,34 +36,38 @@ class Practice extends Component {
       language: 'cpp17',
       versionIndex: '0',
       clientId: 'cd014467b8e205b74b87fbee27d3dfdd',
-      clientSecret: '1ffd134a9bd3a34832354356005e9f3fbb93f8ae80d298107f99e68acdcaec50'
+      clientSecret:
+        '1ffd134a9bd3a34832354356005e9f3fbb93f8ae80d298107f99e68acdcaec50'
     }
 
     const config = {
       headers: {
-        'Content-Type': 'multipart/form-data' 
-        
+        'Content-Type': 'multipart/form-data'
       }
     }
-   const formData =new FormData();
-   console.log(program)
-  Object.keys(program).forEach(key=>{
-    console.log(key);
-    formData.append(key,program[key])
-  })
-   console.log(formData.keys())
-   for (let value of formData.values()) {
-    console.log(value);
- }
+    const formData = new FormData()
+    console.log(program)
+    Object.keys(program).forEach((key) => {
+      console.log(key)
+      formData.append(key, program[key])
+    })
+    console.log(formData.keys())
+    for (let value of formData.values()) {
+      console.log(value)
+    }
     //document.getElementById('practicebtn').disabled = true
-    this.setState({spinner:true})
+    this.setState({ running: true })
     axios
-      .post('https://code-play-apis.herokuapp.com/api/execute',formData,config)
+      .post(
+        'https://code-play-apis.herokuapp.com/api/execute',
+        formData,
+        config
+      )
       .then((data) => {
         console.log('DATA:::', data.data.output)
         //document.getElementById('practicebtn').disabled = false
 
-        this.setState({ output: data.data.output,spinner: false})
+        this.setState({ output: data.data.output, running: false })
       })
       .catch((e) => {
         console.log('e: ', e)
@@ -87,29 +93,32 @@ class Practice extends Component {
 
   render() {
     let attachedClasses = [classes.Sidebar, classes.Close]
+
     if (this.props.show) {
       attachedClasses = [classes.Sidebar, classes.Open]
     }
 
+    // console.log('practice props:::', this.props)
     return (
       <Auxillary>
         <div className={attachedClasses.join(' ')}>
           <div className={classes.practiceEditor}>
             <div className={classes.top}>
               <p>Code</p>
-              {this.state.spinner?<Spinner/>:<button
-                id="practicebtn"
+              <button
+                id="practiceBtn"
                 className={classes.runButton}
                 onClick={this.compiler}
+                disabled={this.state.running}
               >
                 Run
-              </button>}
+              </button>
             </div>
             <Editor
               mode="c_cpp"
               width="100%"
               height="90%"
-              template={template}
+              template={this.props.code}
               onChange={(val) => this.onCodeChange(val)}
             />
           </div>

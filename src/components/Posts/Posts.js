@@ -7,7 +7,7 @@ import { ImSearch } from 'react-icons/im'
 import styles from './Posts.module.css'
 import PostSpinner from '../PostSpinner/postSpinner'
 class Posts extends Component {
-  state = { posts: null, noPosts: true,submit:false }
+  state = { posts: null, noPosts: true, submit: false }
   inputElement = undefined
 
   componentDidMount() {
@@ -96,7 +96,7 @@ class Posts extends Component {
     // console.log('event', newPostData)
     const loginToken = localStorage.getItem('loginToken')
     // console.log('Logut me token-', loginToken)
-    this.setState({submit:true})
+    this.setState({ submit: true })
     axios
       .post('https://code-play-apis.herokuapp.com/makepost', newPostData, {
         headers: {
@@ -123,7 +123,7 @@ class Posts extends Component {
           {
             posts: updatedPosts,
             noPosts: false,
-            submit:false
+            submit: false
           },
           () => {
             // console.log('makepost state:::', this.state)
@@ -145,25 +145,30 @@ class Posts extends Component {
             {this.state.posts ? this.state.posts : <Spinner />}
           </div>
           <div className={styles.makePost}>
-            {this.state.submit?<PostSpinner/>:<form onSubmit={(event) => this.createNewPost(event)}>
-              <h3>Create New Post</h3>
-              <div>
-                <label htmlFor="newPostTitle">Title</label>
-                <input
-                  type="text"
-                  name="newPostTitle"
-                  autoComplete="off"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="newPostContent">Content</label>
-                <textarea name="newPostContent" required />
-              </div>
-              <button type="submit">Submit</button>
-            </form>}
+            {this.state.submit ? (
+              <PostSpinner />
+            ) : (
+              <form onSubmit={(event) => this.createNewPost(event)}>
+                <h3>Create New Post</h3>
+                <div>
+                  <label htmlFor="newPostTitle">Title</label>
+                  <input
+                    type="text"
+                    name="newPostTitle"
+                    autoComplete="off"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="newPostContent">Content</label>
+                  <textarea name="newPostContent" required />
+                </div>
+                <button type="submit">Submit</button>
+              </form>
+            )}
           </div>
         </div>
+
         <div className={styles.searchArea}>
           <input
             id="searchText"
@@ -175,7 +180,7 @@ class Posts extends Component {
           ></input>
           <ImSearch
             id="searchButton"
-            size="1.5em"
+            size="1.9em"
             onClick={() => this.searchPosts(this.inputElement.value)}
           />
         </div>

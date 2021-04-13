@@ -1,17 +1,11 @@
-const code = ` 
-/* C/C++ program to solve N Queen Problem using
-backtracking */
-#define N 4
-#include <stdbool.h>
-#include <stdio.h>
-
+const code = `
 /* A utility function to print solution */
 void printSolution(int board[N][N])
 {
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++)
 			printf(" %d ", board[i][j]);
-		printf("\n");
+		printf("\\n");
 	}
 }
 
@@ -99,14 +93,6 @@ bool solveNQ()
 
 	printSolution(board);
 	return true;
-}
+}`
 
-// driver program to test above function
-int main()
-{
-	solveNQ();
-	return 0;
-}
-
-`
 export default code

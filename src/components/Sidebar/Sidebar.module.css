@@ -10,12 +10,12 @@
   padding-top: 60px;
   background-color: #111;
 }
-.logout {
+/* .logout {
   margin-right: none !important;
   align-items: center;
   padding: auto;
   color: white;
-}
+} */
 
 .Sidebar a {
   padding: 8px 8px 8px 32px;
@@ -28,12 +28,13 @@
 
 .Sidebar a:hover {
   color: #f1f1f1;
+  text-decoration: none;
 }
 
 .Sidebar button {
   background: none !important;
   border: none;
-  padding: 0 !important;
+  padding: 8px 8px 8px 32px;
   font-size: 25px;
   color: #818181;
   display: block;

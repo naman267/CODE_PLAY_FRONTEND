@@ -9,26 +9,23 @@ import 'ace-builds/src-noconflict/ext-language_tools'
 
 const editor = (props) => {
   return (
-    <Auxillary>
-      <p style={{ color: 'white' }}>{props.text}</p>
-      <AceEditor
-        height={props.height}
-        width={props.width}
-        mode={props.mode}
-        theme="twilight"
-        readOnly={props.readOnly}
-        value={props.value}
-        defaultValue={props.code ? props.code : props.template}
-        name="UNIQUE_ID_OF_DIV"
-        fontSize={14}
-        setOptions={{
-          enableBasicAutocompletion: true,
-          enableLiveAutocompletion: true,
-          enableSnippets: true
-        }}
-        onChange={props.onChange}
-      />
-    </Auxillary>
+    <AceEditor
+      height={props.height}
+      width={props.width}
+      mode={props.mode}
+      theme="twilight"
+      readOnly={props.readOnly}
+      value={props.value}
+      defaultValue={props.code ? props.code : props.template}
+      name="UNIQUE_ID_OF_DIV"
+      fontSize={14}
+      setOptions={{
+        enableBasicAutocompletion: true,
+        enableLiveAutocompletion: true,
+        enableSnippets: true
+      }}
+      onChange={props.onChange}
+    />
   )
 }
 

@@ -18,9 +18,16 @@ eveniet harum fugiat, amet fugit quibusdam perspiciatis quas ipsa. Libero
 eligendi odit neque iusto! Veritatis recusandae doloribus assumenda quia
 esse quo natus reiciendis! Harum et soluta perspiciatis quasi?`
 
-  const heading = 'Searching Algorithms Algorithms'
+  const heading = 'Searching Algorithms'
 
-  return <AlgorithmDescriber visualizer="/searching/binarySearch" topic="/searching/problems"  heading={heading} content={content} />
+  return (
+    <AlgorithmDescriber
+      visualizer="/searching/binarySearch"
+      topic="/searching/problems"
+      heading={heading}
+      content={content}
+    />
+  )
 }
 
 export default searchingAlgorithmsAbout
