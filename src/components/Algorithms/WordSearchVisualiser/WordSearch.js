@@ -129,22 +129,21 @@ using namespace std;
 
 ${code}
 
-int main(){
-  
-  int arr[] = {5, 7, 9, 14, 23, 33, 40, 64, 72};
-  int n = sizeof(arr)/sizeof(int);
+// Driver program
+int main()
+{
+	int R = 3, C = 13;
+	char grid[R][C] = { "GEEKSFORGEEKS",
+						"GEEKSQUIZGEEK",
+						"IDEQAPRACTICE" };
 
-  int idx = binarySearch(arr, n, 23);
+	patternSearch((char *)grid, "GEEKS", R, C);
+	cout << endl;
+	patternSearch((char *)grid, "EEE", R, C);
+	return 0;
+}
 
-  if(idx != -1){
-    cout<<"Element found at index "<< idx;
-  }
-  else{
-    cout<<"Element not found!";
-  }
-
-  return 0;
-}`
+`
 
     return (
       <div className="ws-comp">
