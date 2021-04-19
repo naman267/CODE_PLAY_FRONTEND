@@ -129,18 +129,22 @@ using namespace std;
 
 ${code}
 
-// Driver program
+// Driver Code
 int main()
 {
-	int R = 3, C = 13;
-	char grid[R][C] = { "GEEKSFORGEEKS",
-						"GEEKSQUIZGEEK",
-						"IDEQAPRACTICE" };
+	char grid[][c] = { "axmy",
+						"bgdf",
+						"xeet",
+						"raks" };
 
-	patternSearch((char *)grid, "GEEKS", R, C);
-	cout << endl;
-	patternSearch((char *)grid, "EEE", R, C);
-	return 0;
+	// Function to check if word exists or not
+	if (checkMatch(grid, "geeks", r, c))
+		cout << "Yes";
+	else
+		cout << "No";
+
+return 0;
+
 }
 
 `

@@ -1,67 +1,76 @@
 const code = `
-// C++ programs to search a word in a 2D grid
+// C++ program to check if the word
+// exists in the grid or not
 
-// For searching in all 8 direction
-int x[] = { -1, -1, -1, 0, 0, 1, 1, 1 };
-int y[] = { -1, 0, 1, -1, 1, -1, 0, 1 };
+#define r 4
+#define c 5
 
-// This function searches in
-// all 8-direction from point
-// (row, col) in grid[][]
-bool search2D(char *grid, int row, int col,
-			string word, int R, int C)
+// Function to check if a word exists in a grid
+// starting from the first match in the grid
+// level: index till which pattern is matched
+// x, y: current position in 2D array
+bool findmatch(char mat[][c], string pat, int x, int y,
+			int nrow, int ncol, int level)
 {
-	// If first character of word doesn't
-	// match with given starting point in grid.
-	if (*(grid+row*C+col) != word[0])
+	int l = pat.length();
+
+	// Pattern matched
+	if (level == l)
+		return true;
+
+	// Out of Boundary
+	if (x < 0 || y < 0 || x >= nrow || y >= ncol)
 		return false;
 
-	int len = word.length();
+	// If grid matches with a letter while
+	// recursion
+	if (mat[x][y] == pat[level]) {
 
-	// Search word in all 8 directions
-	// starting from (row, col)
-	for (int dir = 0; dir < 8; dir++) {
-		// Initialize starting point
-		// for current direction
-		int k, rd = row + x[dir], cd = col + y[dir];
+		// Marking this cell as visited
+		char temp = mat[x][y];
+		mat[x][y] = '#';
 
-		// First character is already checked,
-		// match remaining characters
-		for (k = 1; k < len; k++) {
-			// If out of bound break
-			if (rd >= R || rd < 0 || cd >= C || cd < 0)
-				break;
+		// finding subpattern in 4 directions
+		bool res = findmatch(mat, pat, x - 1, y, nrow, ncol, level + 1) |
+				findmatch(mat, pat, x + 1, y, nrow, ncol, level + 1) |
+				findmatch(mat, pat, x, y - 1, nrow, ncol, level + 1) |
+				findmatch(mat, pat, x, y + 1, nrow, ncol, level + 1);
 
-			// If not matched, break
-			if (*(grid+rd*C+cd) != word[k])
-				break;
+		// marking this cell
+		// as unvisited again
+		mat[x][y] = temp;
+		return res;
+	}
+	else // Not matching then false
+		return false;
+}
 
-			// Moving in particular direction
-			rd += x[dir], cd += y[dir];
+// Function to check if the word exists in the grid or not
+bool checkMatch(char mat[][c], string pat, int nrow, int ncol)
+{
+
+	int l = pat.length();
+
+	// if total characters in matrix is
+	// less then pattern lenghth
+	if (l > nrow * ncol)
+		return false;
+
+	// Traverse in the grid
+	for (int i = 0; i < nrow; i++) {
+		for (int j = 0; j < ncol; j++) {
+
+			// If first letter matches, then recur and check
+			if (mat[i][j] == pat[0])
+				if (findmatch(mat, pat, i, j, nrow, ncol, 0))
+					return true;
 		}
-
-		// If all character matched, then value of k must
-		// be equal to length of word
-		if (k == len)
-			return true;
 	}
 	return false;
 }
 
-// Searches given word in a given
-// matrix in all 8 directions
-void patternSearch(char *grid, string word,
-				int R, int C)
-{
-	// Consider every point as starting
-	// point and search given word
-	for (int row = 0; row < R; row++)
-		for (int col = 0; col < C; col++)
-			if (search2D(grid, row, col, word, R, C))
-				cout << "pattern found at "
-					<< row << ", "
-					<< col << endl;
-}
+
+
 
 `
 

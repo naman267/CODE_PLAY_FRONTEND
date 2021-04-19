@@ -11,10 +11,12 @@ import BinarySearchLayout from '../../components/Algorithms/searchingAlgorithms/
 import LinearSearchLayout from '../../components/Algorithms/searchingAlgorithms/LinearSearch/LinearSearchLayout'
 import WordSearchLayout from '../../components/Algorithms/WordSearchVisualiser/BacktrackingLayout'
 import Nqueen from '../../components/Algorithms/nQueensProblem/NqueenLayout'
+import Contact from '../../components/Contact/Contact'
 const main = (props) => {
   return (
     <>
       <Route path="/" exact component={LoginSignup} />
+      <Route path="/contact" exact component={Contact} />
 
       {/* <Route path="/" exact component={Questions} /> */}
       {/* ---------------CHANGE THIS ROUTE FOR POSTS---------------- */}
