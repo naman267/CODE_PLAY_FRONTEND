@@ -1,12 +1,4 @@
-/*
------------------------
-BACKTRACKING ALGORITHMS
------------------------
-*/
 
-/* -----------------------
-N Queen Problem Algorithms
--------------------------- */
 
 function createBoard(size) {
     const board = [];
@@ -69,10 +61,8 @@ export function getRowsOfZeroes(size) {
     return row;
 }
 
-/* ----------------------
-Rat In A Maze Solving Algorithms
-------------------------- */
-
+/*Rat In maze*/
+/*
 function isRatSafe(maze = [], x, y) {
     let mazeRows = maze.length;
     let mazeCols = maze[0].length;
@@ -129,4 +119,4 @@ export function prepareSolutionBoardOfZeroes(size) {
         sol.push(temp);
     }
     return sol;
-}
+}*/

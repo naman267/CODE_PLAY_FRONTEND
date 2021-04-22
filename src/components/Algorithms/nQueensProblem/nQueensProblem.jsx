@@ -142,7 +142,7 @@ export default class NQueensProblem extends React.Component {
       setTimeout(() => {
         // checking if this is a valid position
         if (isQueenSafe) {
-          // valid positions are highlighted as RED which is royal
+          // valid positions are highlighted as RED 
           arrayTiles[idx].style.backgroundColor = SAFE_COLOR
           arrayTiles[idx].classList.add('safe-queen')
 
