@@ -29,7 +29,10 @@ class Questions extends Component {
       <div className={styles.Questions}>
         <div className={styles.container}>
           <SideBar />
-          <div className={styles.questions}>{this.state.questions}</div>
+          <div className={styles.main}>
+            <h2>Practice Section</h2>
+            <div className={styles.questions}>{this.state.questions}</div>
+          </div>
         </div>
       </div>
     )

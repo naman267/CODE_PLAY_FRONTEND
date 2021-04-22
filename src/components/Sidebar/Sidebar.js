@@ -46,6 +46,7 @@ const sidebar = () => {
           <Link to="/searching">Searching</Link>
           <Link to="/backtracking">Backtracking</Link>
           <Link to="/dp">Dynamic Programming</Link>
+          <Link to="/posts">Community</Link>
           <Link to="/Contact">Contact</Link>
           <button className={styles.logout} onClick={logout}>
             Logout
