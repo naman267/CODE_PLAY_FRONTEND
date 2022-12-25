@@ -32,7 +32,7 @@ class Form extends Component {
     const formData = new FormData(e.target)
    this.setState({ spinner:true})
     axios
-      .post('http://localhost:3080/login', formData, {
+      .post('https://code-play-apis.herokuapp.com/login', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -65,7 +65,7 @@ class Form extends Component {
     console.log('form data:::', formData)
      this.setState({spinner:true})
     axios
-      .post('http://localhost:3080/signup', formData, {
+      .post('https://code-play-apis.herokuapp.com/signup', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
