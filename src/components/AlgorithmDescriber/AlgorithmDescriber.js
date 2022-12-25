@@ -19,8 +19,7 @@ const algorithmDescriber = (props) => {
         <p>{props.content}</p>
       </div>
       <div className={classes.buttons}>
-        {/* <Link to={props.visualizer}><button className={classes.visualizeButton}>Vizualize</button></Link>  */}
-        {/* {props.show?<Dropdown visual1={props.v1} visual2={props.v2}/>:null} */}
+   
         {drop}
         <Link to={props.topic}><button className={classes.practiceButton}>Practice</button></Link>
       </div>

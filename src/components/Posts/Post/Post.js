@@ -22,7 +22,7 @@ class Post extends Component {
     const loginToken = localStorage.getItem('loginToken')
     // console.log('login token:::', loginToken)
     axios
-      .get('https://code-play-apis.herokuapp.com/getUser', {
+      .get('http://localhost:3080/getUser', {
         headers: {
           Authorization: `Bearer ${loginToken}`
         }
@@ -64,7 +64,7 @@ class Post extends Component {
     // console.log('Voting-', loginToken)
     const temp = { name: 'naman' }
     axios
-      .post(`https://code-play-apis.herokuapp.com/${voteMethod}/${id}`, temp, {
+      .post(`http://localhost:3080/${voteMethod}/${id}`, temp, {
         headers: {
           Authorization: `Bearer ${loginToken}`
         }

@@ -17,7 +17,7 @@ class Contact extends React.Component {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "https://code-play-apis.herokuapp.com/send",
+      url: "http://localhost:3080/send",
       data: this.state
     }).then((response) => {
       console.log(response)

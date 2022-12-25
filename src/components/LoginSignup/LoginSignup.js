@@ -12,7 +12,8 @@ import axios from 'axios'
 import styles from './LoginSignup.module.css'
 import PostSpinner from '../Spinner/Spinner'
 class Form extends Component {
-  state = { spinner: false }
+  state = {spinner:false}
+  
   componentDidMount() {
     const signUpButton = document.getElementById('signUp')
     const signInButton = document.getElementById('signIn')
@@ -31,7 +32,7 @@ class Form extends Component {
     const formData = new FormData(e.target)
    this.setState({ spinner:true})
     axios
-      .post('https://code-play-apis.herokuapp.com/login', formData, {
+      .post('http://localhost:3080/login', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -41,7 +42,10 @@ class Form extends Component {
         this.setState({submit:false})
         if(response.data.message!=='Login succesful' )
         {
-          return alert("Unable to login. Please try again")
+         // return alert("Unable to login. Please try again")
+         alert("Unable to login. Please try again")
+         window.location="/"
+         return;
         }
         localStorage.setItem('loginToken', `${response.data.token}`)
         
@@ -49,6 +53,9 @@ class Form extends Component {
       })
       .catch((error) => {
         console.log('login error:::', error)
+        alert("Unable to login. Please try again")
+        window.location="/"
+        return;
       })
   }
 
@@ -58,7 +65,7 @@ class Form extends Component {
     console.log('form data:::', formData)
      this.setState({spinner:true})
     axios
-      .post('https://code-play-apis.herokuapp.com/signup', formData, {
+      .post('http://localhost:3080/signup', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -68,17 +75,23 @@ class Form extends Component {
         this.setState({spinner:false})
         if(response.data.message!=='userCreated')
         {
-          return alert('Unable to sign up. Please try again')
+         // return alert('Unable to sign up. Please try again')
+          alert("Unable to Signup. Please try again")
+          window.location="/"
+          return;
         }
         localStorage.setItem('loginToken', `${response.data.token}`)
         window.location = '/posts'
       })
       .catch((error) => {
         console.log('signup error:::', error)
+        alert("Unable to Signup. Please try again")
+        window.location="/"
       })
   }
 
   render() {
+    console.log("stststt",this.state)
     return (
       <div className={styles.formPage}>
         {this.state.spinner?<PostSpinner/>:<div className={styles.container} id="container">

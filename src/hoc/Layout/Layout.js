@@ -62,15 +62,8 @@ class Layout extends Component {
     }
 
     return (
-      <Auxillary>
-        {/* <WordSearch clicked={this.showPracticeToggleHandler} /> */}
-        {/*  */}
-        {/* <About /> */}
-        {/* <WordSearchAboutPage /> */}
-        {/* <BackTrackingAboutPage /> */}
-        {/* <DynamicProgrammingAboutPage /> */}
+      <Auxillary>   
         {comp}
-        {/* <Practice show={this.state.showPractice} /> */}
       </Auxillary>
     )
   }

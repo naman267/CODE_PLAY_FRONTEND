@@ -20,7 +20,7 @@ const sidebar = () => {
     console.log('Logut me token-', loginToken)
     const temp = { name: 'naman' }
     axios
-      .post('https://code-play-apis.herokuapp.com/logout', temp, {
+      .post('http://localhost:3080/logout', temp, {
         headers: {
           Authorization: `Bearer ${loginToken}`
         }
@@ -56,7 +56,7 @@ const sidebar = () => {
 
       <div id="main" className={styles.main}>
         <button id="hamburger" className={styles.openbtn} onClick={openNav}>
-          ☰
+          ☰  
         </button>
       </div>
     </>

@@ -14,7 +14,7 @@ class Questions extends Component {
 
   componentDidMount() {
     axios
-      .get(`https://code-play-apis.herokuapp.com/${this.props.topic}/problems`)
+      .get(`http://localhost:3080/${this.props.topic}/problems`)
       .then((response) => {
         let quess = response.data.map((ques, idx) => (
           <Question key={idx} {...ques} />
