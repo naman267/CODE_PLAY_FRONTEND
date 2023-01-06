@@ -65,7 +65,7 @@ class Form extends Component {
     console.log('form data:::', formData)
      this.setState({spinner:true})
     axios
-      .post('https://code-play-apis.herokuapp.com/signup', formData, {
+      .post('https://code-play-apis.onrender.com/signup', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

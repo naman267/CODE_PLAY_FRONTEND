@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/api/execute',
     createProxyMiddleware({
-      target: 'https://code-play-apis.herokuapp.com/api/execute',
+      target: 'https://code-play-apis.onrender.com/api/execute',
       changeOrigin: true,
     })
   );
