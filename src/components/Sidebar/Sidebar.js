@@ -20,7 +20,7 @@ const sidebar = () => {
     console.log('Logut me token-', loginToken)
     const temp = { name: 'naman' }
     axios
-      .post('http://localhost:3080/logout', temp, {
+      .post('https://code-play-apis.onrender.com/logout', temp, {
         headers: {
           Authorization: `Bearer ${loginToken}`
         }

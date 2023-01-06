@@ -59,7 +59,7 @@ class Practice extends Component {
     this.setState({ running: true })
     axios
       .post(
-        'https://code-play-apis.herokuapp.com/api/execute',
+        'https://code-play-apis.onrender.com/api/execute',
         formData,
         config
       )

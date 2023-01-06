@@ -5,14 +5,14 @@ const navBar = () => (
     <span>
       <a
         className="btn-sm text-decoration-none bg-dark rounded-0 text-light"
-        href="https://github.com/dipeshpatil/algorithms-visualiser"
+        href=""
       >
         <i className="fab text-light fa-github"></i>
         &nbsp; Source Code
       </a>
       <a
         className="btn-sm text-decoration-none bg-dark rounded-0 text-light"
-        href="https://linkedin.com/in/dipesh-patil"
+        href=""
       >
         <i className="fab text-light fa-linkedin"></i>
         &nbsp; rp16

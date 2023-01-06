@@ -17,7 +17,7 @@ class Contact extends React.Component {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "http://localhost:3080/send",
+      url: "https://code-play-apis.onrender.com/send",
       data: this.state
     }).then((response) => {
       console.log(response)

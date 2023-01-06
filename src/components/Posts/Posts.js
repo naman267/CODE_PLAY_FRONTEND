@@ -24,7 +24,7 @@ class Posts extends Component {
 
     // fetch all posts
     axios
-      .get('https://code-play-apis.herokuapp.com/getposts')
+      .get('https://code-play-apis.onrender.com/getposts')
       .then((response) => {
         // console.log('get all posts response:::', response.data)
 
@@ -71,7 +71,7 @@ class Posts extends Component {
 
   searchPosts = (searchText) => {
     axios
-      .get(`https://code-play-apis.herokuapp.com/getposts/${searchText}`)
+      .get(`https://code-play-apis.onrender.com/getposts/${searchText}`)
       .then((response) => {
         // console.log('getposts by title response:::', response.data)
         let posts =
@@ -98,7 +98,7 @@ class Posts extends Component {
     // console.log('Logut me token-', loginToken)
     this.setState({ submit: true })
     axios
-      .post('https://code-play-apis.herokuapp.com/makepost', newPostData, {
+      .post('https://code-play-apis.onrender.com/makepost', newPostData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${loginToken}`

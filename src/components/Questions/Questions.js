@@ -14,7 +14,7 @@ class Questions extends Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:3080/${this.props.topic}/problems`)
+      .get(`https://code-play-apis.onrender.com/${this.props.topic}/problems`)
       .then((response) => {
         let quess = response.data.map((ques, idx) => (
           <Question key={idx} {...ques} />
